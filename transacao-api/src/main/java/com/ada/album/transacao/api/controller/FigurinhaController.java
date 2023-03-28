@@ -37,7 +37,7 @@ public class FigurinhaController {
 		return null;
 	}
 	
-	@PostMapping
+	@PostMapping("/transferencia")
 	public FigurinhaDTO transferir(@RequestBody @Valid TransferenciaFigurinhaInput transferenciaFigurinhaInput) {
 		return null;
 	}

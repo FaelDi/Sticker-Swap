@@ -1,13 +1,12 @@
 package com.ada.album.transacao.domain.model;
 
-import org.hibernate.annotations.ManyToAny;
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
@@ -16,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "albumId", "figurinhaId" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "tipoAlbumId", "tipoFigurinhaId" }) })
 public class Figurinha {
 	
 	@EqualsAndHashCode.Include
@@ -32,7 +31,7 @@ public class Figurinha {
 	
 	private Integer quantidade;
 	
-	@ManyToAny
+	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Album album;
 	
