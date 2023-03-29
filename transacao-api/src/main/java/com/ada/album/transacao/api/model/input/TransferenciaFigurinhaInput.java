@@ -5,20 +5,25 @@ import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class TransferenciaFigurinhaInput {
 	
 	@NotNull
-	private Long albumIdOrigem;
+	private UUID albumIdOrigem;
 	
 	@NotNull
-	private Long albumIdDestino;
+	private UUID albumIdDestino;
 	
 	@NotNull
-	private Long figurinhaId;
+	private UUID figurinhaId;
 	
 	@Positive
 	private Integer quantidade;
+
+	@Positive
+	private Double valor;
 
 }
