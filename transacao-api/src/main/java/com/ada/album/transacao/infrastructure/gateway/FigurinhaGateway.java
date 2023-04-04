@@ -1,15 +1,13 @@
 package com.ada.album.transacao.infrastructure.gateway;
 
-import com.ada.album.transacao.api.model.AlbumDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.ada.album.transacao.api.model.FigurinhaDTO;
 import com.ada.album.transacao.handle.ErrorException;
-import com.ada.album.transacao.infrastructure.client.AlbumClient;
 import com.ada.album.transacao.infrastructure.client.FigurinhaClient;
+
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
-import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class FigurinhaGateway {
