@@ -29,10 +29,13 @@ public class TransacaoServiceImplTest {
     @Mock
     private FigurinhaGateway figurinhaGateway;
 
+    @Mock
+    private RedisServiceImpl redisService;
+
     @BeforeEach
     public void setUp() {
     	MockitoAnnotations.openMocks(this);
-        transacaoService = new TransacaoServiceImpl(albumGateway, figurinhaGateway);
+        transacaoService = new TransacaoServiceImpl(albumGateway, figurinhaGateway,redisService);
     }
 
     @Test
