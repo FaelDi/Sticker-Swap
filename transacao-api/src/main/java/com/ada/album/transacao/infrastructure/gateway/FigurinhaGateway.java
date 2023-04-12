@@ -9,6 +9,8 @@ import com.ada.album.transacao.infrastructure.client.FigurinhaClient;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
+import java.util.List;
+
 @Component
 public class FigurinhaGateway {
 
@@ -25,8 +27,17 @@ public class FigurinhaGateway {
         return figurinhaClient.atualizaFigurinha(id, figurinhaDTO);
     }
 
+    @CircuitBreaker(name = "geraColecaoFigurinhas", fallbackMethod = "findFigurinhaFallback")
+    public List<FigurinhaDTO> geraColecaoFigurinhas(String idColecao, String qnt) {
+        return figurinhaClient.geraFigurinhas(idColecao,qnt);
+    }
+
     private FigurinhaDTO findFigurinhaFallback(String id, Throwable e){
         throw new ErrorException( "Figurinhas não disponivel, tente mais tarde");
+    }
+
+    private List<FigurinhaDTO> geraColecaoFigurinhasFallback(String idColecao, String qnt, Throwable e){
+        throw new ErrorException( "Banca não disponivel, tente mais tarde");
     }
 
     private FigurinhaDTO atualizaFigurinhaFallback(String id , FigurinhaDTO figurinhaDTO, Throwable e){
