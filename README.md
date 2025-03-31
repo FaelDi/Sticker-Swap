@@ -1,4 +1,4 @@
-# atividade-arquitetura-software-e-agil_realiza-troca-de-figurinhas
-Spring boot service | Feign Clients | Service discovery | H2 Database
+software-architecture-and-agile_activity-sticker-swap
+Spring Boot service | Feign Clients | Service discovery | H2 Database
 
-BE-JV-009 Arquitetura de Software e Ágil I
+BE-JV-009 Software Architecture and Agile I
